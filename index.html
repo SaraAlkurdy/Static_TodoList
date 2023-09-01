@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="scss/style.css" />
+    <link rel="stylesheet" type="text/css" href="scss/responsive.css" />
+    <title>Task Management System</title>
+  </head>
+
+  <body id="body">
+    <header>
+      <div class="sub-header" dir="rtl">
+        <div>
+          <h3>نظام إدارة المهام</h3>
+          <h3>Task Management System</h3>
+        </div>
+        <div>
+          <h3>إدارة الموظفين</h3>
+          <div class="img-style">
+            <img src="assets/Logo_of_Twitter.svg" />
+          </div>
+        </div>
+      </div>
+      <img src="assets/to-do-list.png" />
+    </header>
+
+    <div class="lang" dir="rtl">
+      <select id="switch-lang">
+        <option value="en">English</option>
+        <option value="ar">Arabic</option>
+      </select>
+    </div>
+    <main>
+      <div class="todo-list">
+        <div class="header">
+          <div id="currentDate">
+            <h2 dir="rtl"></h2>
+            <div>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <h3 id="currentDay"></h3>
+        </div>
+
+        <section class="content">
+          <ul>
+            <li>
+              <input type="checkbox" id="list-input1" class="radio" />
+              <label for="list-input1"> Buy new sweatshirt </label>
+            </li>
+            <li>
+              <input type="checkbox" id="list-input1" class="radio" />
+              <label for="list-input1"> Begin promotional phase </label>
+            </li>
+            <li>
+              <input type="checkbox" id="list-input1" class="radio" />
+              <label for="list-input1"> Read an article </label>
+            </li>
+            <li>
+              <input type="checkbox" id="list-input1" class="radio" />
+              <label for="list-input1"> Try not to fall asleep </label>
+            </li>
+            <li>
+              <input type="checkbox" id="list-input1" class="radio" />
+              <label for="list-input1"> Watch 'Sherlook' </label>
+            </li>
+            <li>
+              <input type="checkbox" id="list-input1" class="radio" />
+              <label for="list-input1"> Begin QA for the product </label>
+            </li>
+            <li>
+              <input type="checkbox" id="list-input1" class="radio" />
+              <label for="list-input1">Go for a walk</label>
+            </li>
+          </ul>
+        </section>
+
+        <div class="footer">
+          <button></button>
+        </div>
+      </div>
+    </main>
+    <!-- <div class="container"></div> -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+@use "fonts";
+@use "variables" as variables;
+@use "functions" as functions;
+@use "mixins" as mixins;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: variables.$primary-color;
+  font-family: "Droid Arabic Kufi", serif;
+  button,
+  select {
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.2s;
+    }
+  }
+  header {
+    height: 8em;
+    position: relative;
+    display: grid;
+    align-items: center;
+    background: linear-gradient(
+      -45deg,
+      variables.$primary-color 50%,
+      variables.$secondary-color 50%
+    );
+
+    .sub-header {
+      @include mixins.display-flex;
+      justify-content: space-between;
+      background: linear-gradient(
+        -45deg,
+        variables.$light-color 35%,
+        transparent 42%,
+        variables.$blue-color 36%
+      );
+      height: 5em;
+      padding: 0 variables.$primary-size;
+      margin-right: variables.$primary-size;
+      &[dir="rtl"] {
+        direction: ltr;
+      }
+      > div {
+        &:nth-child(1) {
+          margin: 0 auto;
+          h3 {
+            color: variables.$light-color;
+            text-align: end;
+            margin: 0;
+          }
+        }
+        &:nth-child(2) {
+          @include mixins.display-flex;
+          .img-style {
+            background: variables.$blue-color;
+            display: flex;
+            height: auto;
+            padding: 10px;
+            border-radius: 5px;
+            width: variables.$primary-size;
+            img {
+              width: 100%;
+              filter: brightness(0) invert(1);
+            }
+          }
+          h3 {
+            color: variables.$secondary-color;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    > img {
+      top: variables.$secondary-size;
+      left: variables.$secondary-size;
+      position: absolute;
+    }
+  }
+
+  .lang {
+    display: flex;
+    justify-content: end;
+    padding: 0 variables.$primary-size;
+    &[dir="rtl"] {
+      justify-content: start;
+    }
+    select {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      border: none;
+      padding: 1em 1.5em;
+      appearance: none;
+      cursor: pointer;
+    }
+  }
+
+  main {
+    padding: 19em 0;
+    .todo-list {
+      width: 30%;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      background: variables.$light-color;
+      padding: variables.$primary-size;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+
+      .header {
+        @include mixins.display-flex;
+        justify-content: space-between;
+        #currentDate {
+          @include mixins.display-flex;
+          justify-content: space-between;
+          color: variables.$grey-color;
+          h2 {
+            font-size: 3em;
+            margin-right: 0.2em;
+            &[dir="rtl"] {
+              margin: 0 0 0 0.2em;
+            }
+          }
+          div {
+            display: flex;
+            flex-direction: column;
+            span {
+              line-height: 1.5em;
+              text-align: center;
+            }
+          }
+        }
+        h3 {
+          color: variables.$grey-color;
+          text-transform: uppercase;
+        }
+      }
+
+      .content {
+        padding: variables.$primary-size 0;
+        ul {
+          li {
+            @include mixins.display-flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            margin-bottom: 1em;
+            .radio {
+              height: 1.5rem;
+              width: 1.5rem;
+              @include mixins.border-radius;
+              outline: none;
+              appearance: none;
+              &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 1px solid variables.$light-grey-color;
+                border-radius: 50%;
+              }
+              &:checked {
+                &::before {
+                  content: "\f00c";
+                  font-family: "FontAwesome";
+                  border: 3px solid variables.$secondary-color;
+                  color: variables.$secondary-color;
+                  @include mixins.display-flex;
+                  justify-content: center;
+                }
+                + label {
+                  color: variables.$light-grey-color;
+                }
+              }
+
+              + label {
+                color: variables.$dark-grey-color;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+
+      .footer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        button {
+          cursor: pointer;
+          position: absolute;
+          height: variables.$secondary-size;
+          width: variables.$secondary-size;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          background: variables.$green-color;
+          border: none;
+          border-radius: 50%;
+          &::before {
+            content: "\2b";
+            font-family: "FontAwesome";
+            font-size: 3em;
+            color: variables.$secondary-color;
+          }
+        }
+      }
+    }
+  }
+}
